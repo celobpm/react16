@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+
+}
+
+.App .MainButton {
+  background-color: green;
+  color: white;
+  font: inherit;
+  border: 1px solid blue;
+  padding: 8px;
+  cursor: pointer;
+
+}
+
+.App .MainButton:hover {
+  background-color: lightgreen;
+}
+
+
+.App .Red {
+  background-color: red;
+
+  
+
+}
+.App .Red:hover {
+  background-color: lightcoral;
+}
+

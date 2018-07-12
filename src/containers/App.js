@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from './Person/Person';
+import PersonList from '../components/Person/PersonList';
 
 class App extends Component {
   state = {
@@ -40,34 +40,23 @@ class App extends Component {
 
   render() {
 
-    let persons = null;
+    let buttonClass = "";
     if(!this.state.showPersons){
-      persons = (
-        <div>
-          <p>where's everyone?</p>
-        </div>
-      )
+      buttonClass = "MainButton"
     }
     else{
-      persons = (
-        <div>
-          {this.state.persons.map((p, i) =>  
-            <Person 
-              name ={p.name} 
-              age={p.age} 
-              onClick = {this.deletePersonHandler.bind(this,i)}
-              onChange = {this.onChangeNameHandler.bind(this,i)}
-              id = {i} 
-              key = {p.id}   
-            />)}
-        </div>
-      )
+      buttonClass = "MainButton Red"
     }
     return (
       <div className="App">
         <h1> helloooooo </h1>
-        <button className="MainButton" onClick={this.togglePersonsHandler}>Toggle persons</button>
-        {persons}
+        <button className={buttonClass} onClick={this.togglePersonsHandler}>Toggle persons</button>
+        <PersonList 
+          persons = {this.state.persons} 
+          showPersons= {this.state.showPersons}
+          onChangeNameHandler = {this.onChangeNameHandler}
+          deletePersonHandler = {this.deletePersonHandler}
+        />
       </div>
     );
   }
